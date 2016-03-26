@@ -124,5 +124,74 @@ namespace cis237assignment4
             //return the completed string
             return returnString;
         }
+
+        //Method to segregate the droidCollection by model onto the corresponding stacks
+        //Calls the method to unload the stacks in the correct order onto the queue.
+        //Then overwrites the droidCollection array with the same content, just in sorted order by model.
+        public void SortByModel()
+        {
+            //Create stacks for each model of droid
+            GenericStack<AstromechDroid> astromechStack = new GenericStack<AstromechDroid>();
+            GenericStack<JanitorDroid> janitorStack = new GenericStack<JanitorDroid>();
+            GenericStack<UtilityDroid> utilityStack = new GenericStack<UtilityDroid>();
+            GenericStack<ProtocolDroid> protocolStack = new GenericStack<ProtocolDroid>();
+            //Create a queue to place the sortes stacks in
+            GenericQueue<IDroid> allQueue = new GenericQueue<IDroid>();
+
+            //Looks at each droid in the droidCollection and places it in the correct stack
+            foreach (IDroid droid in this.droidCollection)
+                if (droid != null)
+                {
+                    if (droid is AstromechDroid)
+                    {
+                        astromechStack.Push((AstromechDroid)droid);
+                    }
+                    else if (droid is JanitorDroid)
+                    {
+                        janitorStack.Push((JanitorDroid)droid);
+                    }
+                    else if (droid is UtilityDroid)
+                    {
+                        utilityStack.Push((UtilityDroid)droid);
+                    }
+                    else if (droid is ProtocolDroid)
+                    {
+                        protocolStack.Push((ProtocolDroid)droid);
+                    }
+                }
+
+            //Once the droidCollection has been seperated onto the specified stacks,
+            //the stacks will be unloaded onto the queue in the correct order.
+            MoveToQueue(astromechStack, allQueue);
+            MoveToQueue(janitorStack, allQueue);
+            MoveToQueue(utilityStack, allQueue);
+            MoveToQueue(protocolStack, allQueue);
+
+            //Counter to track the location
+            Int32 location = allQueue.Location;
+
+            //Place the contents of the allQueue linked list back into the original array
+            //Overwriting the original array
+            for (Int32 i = 0; i < location; i++)
+            {
+                droidCollection[i] = allQueue.Dequeue();
+            }
+        }
+        
+        //Method to move the content from the individual stacks to the queue
+        private void MoveToQueue<T>(GenericStack<T> currentStack, GenericQueue<IDroid> allQueue)
+        {
+            Int32 location = currentStack.Location;
+
+            for (Int32 i = 0; i < location; i++)
+            {
+                allQueue.Enqueue((IDroid)currentStack.Pop());
+            }
+        }
+
+        public void SortByTotalCost()
+        {
+            MergeSort.SortArray(droidCollection);
+        }
     }
 }

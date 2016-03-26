@@ -1,7 +1,7 @@
 # Assignment 4 - Interfaces, Stacks, Queues, Generics, and Merge Sort. Project uses Assignment 3 solution.
 ## Due: 03-28-2016
 
-## Author
+## Author : Ryan Gowan
 
 
 
@@ -65,11 +65,11 @@ The code in the Algorithms book for Stack, Queue, and Merge Sort are in Java. It
 
 Be sure to think about what the time complexity for the bucket sort will be. Think about how it compares to that of a normal sort such as Merge or Bubble. Also consider the space complexity compared to that of merge or bubble sort. You may see questions related to this on the next exam.
 
-## Outside Resources Used
+## Outside Resources Used : None
 
 
 
-## Known Problems, Issues, And/Or Errors in the Program
+## Known Problems, Issues, And/Or Errors in the Program : None
 
 
 
