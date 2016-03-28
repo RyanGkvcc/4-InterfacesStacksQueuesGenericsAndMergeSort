@@ -10,10 +10,10 @@ namespace cis237assignment4
     {
         private static IComparable[] aux;
 
-        public static void SortArray(IComparable[] arr)
+        public static void SortArray(IComparable[] arr, Int32 stopPoint)
         {
             aux = new IComparable[arr.Length];
-            Sort(arr, 0, arr.Length - 1);
+            Sort(arr, 0, stopPoint);
         }
 
         private static void Sort(IComparable[] arr, Int32 lo, Int32 hi)
@@ -34,11 +34,11 @@ namespace cis237assignment4
             Int32 i = lo;
             Int32 j = mid + 1;
 
-            for(Int32 k = lo; k == hi; k++)
+            for(Int32 k = lo; k <= hi; k++)
             {
                 aux[k] = arr[k];
             }
-            for(Int32 k = lo; k == hi; k++)
+            for(Int32 k = lo; k <= hi; k++)
             {
                 if(i>mid)
                 {

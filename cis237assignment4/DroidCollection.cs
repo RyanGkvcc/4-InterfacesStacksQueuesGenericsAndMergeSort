@@ -191,7 +191,14 @@ namespace cis237assignment4
 
         public void SortByTotalCost()
         {
-            MergeSort.SortArray(droidCollection);
+            foreach (IDroid droid in this.droidCollection)
+            {
+                if (droid != null)
+                {
+                    droid.CalculateTotalCost();
+                }
+            }
+            MergeSort.SortArray(droidCollection, lengthOfCollection-1);
         }
     }
 }
