@@ -14,7 +14,7 @@ namespace cis237assignment4
         private IDroid[] droidCollection;
         //Private variable to hold the length of the Collection
         private int lengthOfCollection;
-
+        //Create an instance ot the MergeSort classto pass the droidCollection into
         private MergeSort mergeSort = new MergeSort();
 
         //Constructor that takes in the size of the collection.
@@ -191,6 +191,7 @@ namespace cis237assignment4
             }
         }
 
+        //Method to populate the TotalCost property of each droid and begin the merge sort process
         public void SortByTotalCost()
         {
             foreach (IDroid droid in this.droidCollection)

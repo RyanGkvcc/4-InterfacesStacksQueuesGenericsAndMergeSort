@@ -9,7 +9,7 @@ namespace cis237assignment4
     //Abstract class that implements the IDroid interface
     abstract class Droid : IDroid
     {
-        //some protected variables for the class
+        //Some protected variables for the class
         protected string material;
         protected string model;
         protected string color;
@@ -67,8 +67,10 @@ namespace cis237assignment4
                     "Color: " + this.color + Environment.NewLine;
         }
 
+        //Public method that is required by utilizing IComarable, which compares two objects
         public Int32 CompareTo(Object obj)
         {
+            //If the object is null, return 1, because this works
             if (obj == null)
             {
                 return 1;
@@ -76,10 +78,12 @@ namespace cis237assignment4
             //Cast the object to a droid
             Droid droid = (Droid)obj;
 
+            //If the object is not null, return the comparison of the TotalCost properties of the droids being compared
             if (obj != null)
             {
                 return this.TotalCost.CompareTo(droid.TotalCost);
             }
+            //Else tell the user that they are not comparing apples to apples
             else
             {
                 throw new ArgumentException("The object is not a Droid");

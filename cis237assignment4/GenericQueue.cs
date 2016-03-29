@@ -8,16 +8,19 @@ namespace cis237assignment4
 {
     class GenericQueue<T>
     {
+        //Some protected variables for the class
         protected Node<T> Head;
         protected Node<T> Tail;
         protected Int32 location = 0;
 
 
+        //The public property for Location
         public Int32 Location
         {
             get { return location; }
         }
 
+        //Public method to add contents to the generic queue
         public void Enqueue(T contents)
         {
             Node<T> node = new Node<T>();
@@ -37,6 +40,7 @@ namespace cis237assignment4
             location++;
         }
 
+        //Public method to remove contents from the generic queue
         public T Dequeue()
         {
             T contents = Head.Data;
