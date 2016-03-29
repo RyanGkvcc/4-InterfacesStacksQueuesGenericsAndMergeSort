@@ -15,6 +15,8 @@ namespace cis237assignment4
         //Private variable to hold the length of the Collection
         private int lengthOfCollection;
 
+        private MergeSort mergeSort = new MergeSort();
+
         //Constructor that takes in the size of the collection.
         //It sets the size of the internal array that will be used.
         //It also sets the length of the collection to zero since nothing is added yet.
@@ -198,7 +200,7 @@ namespace cis237assignment4
                     droid.CalculateTotalCost();
                 }
             }
-            MergeSort.SortArray(droidCollection, lengthOfCollection-1);
+            mergeSort.SortArray(droidCollection, lengthOfCollection-1);
         }
     }
 }

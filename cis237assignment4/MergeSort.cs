@@ -8,15 +8,15 @@ namespace cis237assignment4
 {
     class MergeSort
     {
-        private static IComparable[] aux;
+        private IComparable[] aux;
 
-        public static void SortArray(IComparable[] arr, Int32 stopPoint)
+        public void SortArray(IComparable[] arr, Int32 stopPoint)
         {
             aux = new IComparable[arr.Length];
             Sort(arr, 0, stopPoint);
         }
 
-        private static void Sort(IComparable[] arr, Int32 lo, Int32 hi)
+        private void Sort(IComparable[] arr, Int32 lo, Int32 hi)
         {
             if (hi<=lo)
             {
@@ -29,7 +29,7 @@ namespace cis237assignment4
             Merge(arr, lo, mid, hi);
         }
 
-        private static void Merge(IComparable[] arr, Int32 lo, Int32 mid, Int32 hi)
+        private void Merge(IComparable[] arr, Int32 lo, Int32 mid, Int32 hi)
         {
             Int32 i = lo;
             Int32 j = mid + 1;
